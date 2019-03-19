@@ -55,6 +55,7 @@ describe('MaxHeap', () => {
 			const node = new Node(42, 15);
 
 			h.insertNode(node);
+
 			expect(h.root).to.equal(node);
 		});
 

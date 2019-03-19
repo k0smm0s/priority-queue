@@ -9,42 +9,1916 @@
       √ assigns null to this.root
       √ assigns [] to this.parentNodes
     #push
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
       √ calls insertNode with new node having passed data and priority
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
       √ calls shiftNodeUp with new node having passed data and priority
     #insertNode
       √ assings passed node to this.root if heap is empty
-      1) inserts nodes to correct places
-      2) maintains this.parentNodes in correct state
+      √ inserts nodes to correct places
+      √ maintains this.parentNodes in correct state
     #shiftNodeUp
-      3) shifts node up until heap property is valid
-      4) maintants parentNodes in correct state
-      5) calls Node.swapWithParent
-      6) calls itself recursively
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent: [Circular],
+     left:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: 1,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null,
+        rigth: null },
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+      1) shifts node up until heap property is valid
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent: [Circular],
+     left:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: 1,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null,
+        rigth: null },
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+      2) maintants parentNodes in correct state
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent: [Circular],
+     left:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: 1,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null,
+        rigth: null },
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+      √ calls Node.swapWithParent
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent: [Circular],
+     left:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: 1,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null,
+        rigth: null },
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent:
+   Node {
+     data: 3,
+     priority: 20,
+     parent: null,
+     left: [Circular],
+     right:
+      Node {
+        data: 2,
+        priority: 7,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  left:
+   Node {
+     data: 1,
+     priority: 5,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Node] },
+     left: null,
+     right: null,
+     rigth: null },
+  right:
+   Node {
+     data: 2,
+     priority: 7,
+     parent:
+      Node {
+        data: 3,
+        priority: 20,
+        parent: null,
+        left: [Circular],
+        right: [Circular] },
+     left: null,
+     right: null },
+  rigth: null }
+test end
+      √ calls itself recursively
     #clear
+input
+Node { data: 0, priority: 0, parent: null, left: null, right: null }
+test end
+output
+Node { data: 0, priority: 0, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 0,
+  priority: 0,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 2,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 0,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 2,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+input
+Node {
+  data: 0,
+  priority: 0,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 2,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 42,
+     priority: 13,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 0,
+  priority: 0,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 2,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 42,
+     priority: 13,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
       √ assigns null to root and [] to parentNodes
     #pop
       √ does nothing if heap is empty
-      7) returns data associated with root
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 14,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 14,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 14,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 16,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 14,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 16,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 14,
+     parent: [Circular],
+     left:
+      Node {
+        data: 100,
+        priority: 100,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 16,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 14,
+     parent: [Circular],
+     left:
+      Node {
+        data: 100,
+        priority: 100,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 16,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+      3) returns data associated with root
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
       √ calls detachRoot
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
       √ calls restoreRootFromLastInsertedNode with detached root
-      8) calls shiftNodeDown with current heap root
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 42,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 42,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 42,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 100,
+     priority: 100,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 42,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 100,
+     priority: 100,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+      4) calls shiftNodeDown with current heap root
     #detachRoot
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
       √ assigns null to this.root
-      9) removes root from parentNodes
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 42,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 42,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+      √ removes root from parentNodes
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
       √ returns detached root
     #restoreRootFromLastInsertedNode
-      10) should remove last inserted node and assing it to root
-      11) should maintain correct state of parentNodes
-      12) should maintain correct order of parentNodes when right child is moved
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+      5) should remove last inserted node and assing it to root
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+      6) should maintain correct state of parentNodes
+input
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+output
+Node { data: 42, priority: 15, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left:
+      Node {
+        data: 14,
+        priority: 14,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left:
+      Node {
+        data: 14,
+        priority: 14,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left:
+      Node {
+        data: 14,
+        priority: 14,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 13,
+        priority: 13,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left:
+      Node {
+        data: 14,
+        priority: 14,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 13,
+        priority: 13,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left:
+      Node {
+        data: 14,
+        priority: 14,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 13,
+        priority: 13,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left:
+      Node {
+        data: 16,
+        priority: 16,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null } }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left:
+      Node {
+        data: 14,
+        priority: 14,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 13,
+        priority: 13,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left:
+      Node {
+        data: 16,
+        priority: 16,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null } }
+test end
+input
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left:
+      Node {
+        data: 14,
+        priority: 14,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 13,
+        priority: 13,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left:
+      Node {
+        data: 16,
+        priority: 16,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 12,
+        priority: 12,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 42,
+  priority: 15,
+  parent: null,
+  left:
+   Node {
+     data: 14,
+     priority: 32,
+     parent: [Circular],
+     left:
+      Node {
+        data: 14,
+        priority: 14,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 13,
+        priority: 13,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 0,
+     priority: 0,
+     parent: [Circular],
+     left:
+      Node {
+        data: 16,
+        priority: 16,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 12,
+        priority: 12,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+      7) should maintain correct order of parentNodes when right child is moved
     #shiftNodeDown
-      13) shifts node down until heap property is valid
-      14) maintants parentNodes in correct state
-      15) shifts node down in right direction
-      16) calls Node.swapWithParent
-      17) calls itself recursively
+      8) shifts node down until heap property is valid
+      9) maintants parentNodes in correct state
+      10) shifts node down in right direction
+      11) calls Node.swapWithParent
+      12) calls itself recursively
     #size
+input
+Node { data: 15, priority: 42, parent: null, left: null, right: null }
+test end
+output
+Node { data: 15, priority: 42, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 15,
+  priority: 42,
+  parent: null,
+  left:
+   Node {
+     data: 13,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 15,
+  priority: 42,
+  parent: null,
+  left:
+   Node {
+     data: 13,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+input
+Node {
+  data: 15,
+  priority: 42,
+  parent: null,
+  left:
+   Node {
+     data: 13,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 14,
+     priority: 100,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 15,
+  priority: 42,
+  parent: null,
+  left:
+   Node {
+     data: 13,
+     priority: 0,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 14,
+     priority: 100,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
       √ returns current size of heap
     #isEmpty
+input
+Node { data: 100, priority: 500, parent: null, left: null, right: null }
+test end
+output
+Node { data: 100, priority: 500, parent: null, left: null, right: null }
+test end
       √ reutrns true if heap is empty
 
   Node
@@ -59,583 +1933,2496 @@
       √ assing null to this.left if passed node is left child
       √ assing null to this.right if passed node is right child
       √ throws error if passed node is not a child of this node
-      18) assigns null to child.parent
+      √ assigns null to child.parent
     #remove
       √ does nothing if node does not have parent
       √ calls child.parent.removeChild with child as arg
     #swapWithParent
       √ does nothing if node does not have parent
-parent parent
-null
-parent
-Node {
-  data: 15,
-  priority: 42,
-  parent: null,
-  left:
-   Node {
-     data: 42,
-     priority: 15,
-     parent: [Circular],
-     left: null,
-     right: null },
-  right: null }
-child
-Node {
-  data: 15,
-  priority: 42,
-  parent: null,
-  left:
-   Node {
-     data: 42,
-     priority: 15,
-     parent: [Circular],
-     left: null,
-     right: null },
-  right: null }
-========================
-parent parent
-      19) updates parent.parent
-parent parent
-Node {
-  data: 8,
-  priority: 8,
-  parent: null,
-  left:
-   Node {
-     data: 4,
-     priority: 4,
-     parent: [Circular],
-     left:
-      Node {
-        data: 2,
-        priority: 2,
-        parent: [Circular],
-        left: null,
-        right: null },
-     right: null },
-  right: null }
-parent
-Node {
-  data: 4,
-  priority: 4,
-  parent:
-   Node {
-     data: 8,
-     priority: 8,
-     parent: null,
-     left: [Circular],
-     right: null },
-  left:
-   Node {
-     data: 2,
-     priority: 2,
-     parent: [Circular],
-     left: null,
-     right: null },
-  right: null }
-child
-Node {
-  data: 4,
-  priority: 4,
-  parent:
-   Node {
-     data: 8,
-     priority: 8,
-     parent: null,
-     left: [Circular],
-     right: null },
-  left:
-   Node {
-     data: 2,
-     priority: 2,
-     parent: [Circular],
-     left: null,
-     right: null },
-  right: null }
-========================
-parent parent
-null
-parent
-Node {
-  data: 8,
-  priority: 8,
-  parent: null,
-  left:
-   Node {
-     data: 2,
-     priority: 2,
-     parent: [Circular],
-     left:
-      Node {
-        data: 4,
-        priority: 4,
-        parent: [Circular],
-        left: null,
-        right: null,
-        rigth: null },
-     right: null },
-  right: null }
-child
-Node {
-  data: 8,
-  priority: 8,
-  parent: null,
-  left:
-   Node {
-     data: 2,
-     priority: 2,
-     parent: [Circular],
-     left:
-      Node {
-        data: 4,
-        priority: 4,
-        parent: [Circular],
-        left: null,
-        right: null,
-        rigth: null },
-     right: null },
-  right: null }
+      √ updates parent.parent
       √ updates parent.parent.parent
-parent parent
-Node {
-  data: 100,
-  priority: 500,
-  parent: null,
-  left:
-   Node {
-     data: 15,
-     priority: 42,
-     parent: [Circular],
-     left:
-      Node {
-        data: 42,
-        priority: 15,
-        parent: [Circular],
-        left: null,
-        right: null },
-     right: null },
-  right: null }
-parent
-Node {
-  data: 15,
-  priority: 42,
-  parent:
-   Node {
-     data: 100,
-     priority: 500,
-     parent: null,
-     left: [Circular],
-     right: null },
-  left:
-   Node {
-     data: 42,
-     priority: 15,
-     parent: [Circular],
-     left: null,
-     right: null },
-  right: null }
-child
-Node {
-  data: 15,
-  priority: 42,
-  parent:
-   Node {
-     data: 100,
-     priority: 500,
-     parent: null,
-     left: [Circular],
-     right: null },
-  left:
-   Node {
-     data: 42,
-     priority: 15,
-     parent: [Circular],
-     left: null,
-     right: null },
-  right: null }
-========================
-parent parent
-null
-parent
-Node {
-  data: 100,
-  priority: 500,
-  parent: null,
-  left:
-   Node {
-     data: 42,
-     priority: 15,
-     parent: [Circular],
-     left:
-      Node {
-        data: 15,
-        priority: 42,
-        parent: [Circular],
-        left: null,
-        right: null,
-        rigth: null },
-     right: null },
-  right: null }
-child
-Node {
-  data: 100,
-  priority: 500,
-  parent: null,
-  left:
-   Node {
-     data: 42,
-     priority: 15,
-     parent: [Circular],
-     left:
-      Node {
-        data: 15,
-        priority: 42,
-        parent: [Circular],
-        left: null,
-        right: null,
-        rigth: null },
-     right: null },
-  right: null }
       √ updates child.parent
-parent parent
-null
-parent
-Node {
-  data: 1,
-  priority: 2,
-  parent: null,
-  left:
-   Node {
-     data: 3,
-     priority: 4,
-     parent: [Circular],
-     left: null,
-     right: null },
-  right:
-   Node {
-     data: 5,
-     priority: 6,
-     parent: [Circular],
-     left: null,
-     right: null } }
-child
-Node {
-  data: 1,
-  priority: 2,
-  parent: null,
-  left:
-   Node {
-     data: 3,
-     priority: 4,
-     parent: [Circular],
-     left: null,
-     right: null },
-  right:
-   Node {
-     data: 5,
-     priority: 6,
-     parent: [Circular],
-     left: null,
-     right: null } }
-========================
-parent parent
-      20) updates parent.child.parent
-parent parent
-null
-parent
-Node {
-  data: 42,
-  priority: 15,
-  parent: null,
-  left:
-   Node {
-     data: 13,
-     priority: 42,
-     parent: [Circular],
-     left:
-      Node {
-        data: 0,
-        priority: 15,
-        parent: [Circular],
-        left: null,
-        right: null },
-     right: null },
-  right:
-   Node {
-     data: 0,
-     priority: 1,
-     parent: [Circular],
-     left: null,
-     right: null } }
-child
-Node {
-  data: 42,
-  priority: 15,
-  parent: null,
-  left:
-   Node {
-     data: 13,
-     priority: 42,
-     parent: [Circular],
-     left:
-      Node {
-        data: 0,
-        priority: 15,
-        parent: [Circular],
-        left: null,
-        right: null },
-     right: null },
-  right:
-   Node {
-     data: 0,
-     priority: 1,
-     parent: [Circular],
-     left: null,
-     right: null } }
-========================
-parent parent
-      21) updates children of node and parent node
-      22) maintains correct state of parent.parent.left and parent.parent.right
+      √ updates parent.child.parent
+      √ updates children of node and parent node
+      √ maintains correct state of parent.parent.left and parent.parent.right
 
   PriorityQueue
     #constructor
       √ assings passed maxSize or set it to default value 30
       √ assings new MaxHeap to this.heap
     #push
+input
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+output
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
       √ calls heap.push with passed data and priority
-      23) throws an error if queue has max size
+input
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+output
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+input
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 1,
+     priority: 2,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 1,
+     priority: 2,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 1,
+     priority: 2,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 1,
+     priority: 2,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+      13) throws an error if queue has max size
     #shift
+input
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+output
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
       √ calls heap.pop
-      24) returns value of removed node
+input
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+output
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+      14) returns value of removed node
       √ throws an error if queue is empty
-      25) should return items sorted by priority
-      26) should handle items with same priority (return in the same order this items have been added)
+input
+Node { data: 1, priority: 10, parent: null, left: null, right: null }
+test end
+output
+Node { data: 1, priority: 10, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: null } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: null },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: [Node],
+        right: null } } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: [Node],
+        right: null } } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } } }
+test end
+input
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } } }
+test end
+output
+Node {
+  data: 1,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 3,
+        priority: 5,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 2,
+     priority: 20,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 4,
+        priority: 0,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } } }
+test end
+      15) should return items sorted by priority
+input
+Node { data: 0, priority: 10, parent: null, left: null, right: null }
+test end
+output
+Node { data: 0, priority: 10, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left: null,
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null } }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: null },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: null },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: [Node],
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: [Node],
+        right: null } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+input
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+output
+Node {
+  data: 0,
+  priority: 10,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] },
+     right:
+      Node {
+        data: 2,
+        priority: 4,
+        parent: [Circular],
+        left: [Node],
+        right: [Node] } },
+  right:
+   Node {
+     data: 1,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: undefined,
+        priority: undefined,
+        parent: [Circular],
+        left: [Node],
+        right: null },
+     right:
+      Node {
+        data: 3,
+        priority: 17,
+        parent: [Circular],
+        left: null,
+        right: null } } }
+test end
+      16) should handle items with same priority (return in the same order this items have been added)
     #size
-      27) returns current size of queue
+input
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+output
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+      17) returns current size of queue
     #isEmpty
-      √ return true if queue is empty
+input
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+output
+Node { data: 0, priority: 1, parent: null, left: null, right: null }
+test end
+input
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+output
+Node {
+  data: 0,
+  priority: 1,
+  parent: null,
+  left:
+   Node {
+     data: undefined,
+     priority: undefined,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+test end
+      18) return true if queue is empty
 
 
-  32 passing (130ms)
-  27 failing
+  41 passing (206ms)
+  18 failing
 
-  1) MaxHeap #insertNode inserts nodes to correct places:
-     AssertionError: expected null to equal { Object (data, priority, ...) }
-      at Context.it (test\max-heap.spec.js:77:27)
-
-  2) MaxHeap #insertNode maintains this.parentNodes in correct state:
+  1) MaxHeap #shiftNodeUp shifts node up until heap property is valid:
 
       AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
       + expected - actual
 
        {
       -  "data": 0
-      +  "data": 1
-         "left": [null]
-         "parent": [null]
-      -  "priority": 0
-      +  "priority": 1
-         "right": [null]
-       }
-      
-      at Context.it (test\max-heap.spec.js:102:32)
-
-  3) MaxHeap #shiftNodeUp shifts node up until heap property is valid:
-
-      AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
-      + expected - actual
-
-       {
-      -  "data": 0
-      -  "left": {
       +  "data": 3
-      +  "left": [null]
-      +  "parent": {
-           "data": 1
-      -    "left": {
+         "left": {
+      -    "data": 1
+      -    "left": [null]
+      -    "parent": {
       -      "data": 3
-      -      "left": [null]
-      -      "parent": [Circular]
+      -      "left": [Circular]
+      -      "parent": [null]
       -      "priority": 20
-      -      "right": [null]
-      +    "left": [Circular]
-      +    "parent": {
-      +      "data": 0
-      +      "left": [Circular]
-      +      "parent": [null]
-      +      "priority": 10
-      +      "right": {
-      +        "data": 2
-      +        "left": [null]
-      +        "parent": [Circular]
-      +        "priority": 7
-      +        "right": [null]
-      +      }
+      -      "right": {
+      -        "data": 2
+      -        "left": [null]
+      -        "parent": [Circular]
+      -        "priority": 7
+      -        "right": [null]
+      -      }
+      +    "data": 0
+      +    "left": {
+      +      "data": 1
+      +      "left": [null]
+      +      "parent": [Circular]
+      +      "priority": 5
+      +      "right": [null]
+      +      "rigth": [null]
            }
-      -    "parent": [Circular]
-           "priority": 5
+      -    "priority": 5
+      -    "right": [null]
+      -    "rigth": [null]
+      -  }
+      -  "parent": {
+      -    "data": 3
+      -    "left": [Circular]
+      -    "parent": [null]
+      -    "priority": 20
+      +    "parent": [Circular]
+      +    "priority": 10
+           "right": {
+             "data": 2
+             "left": [null]
+             "parent": [Circular]
+             "priority": 7
+             "right": [null]
+           }
+      +    "rigth": [null]
+         }
+      -  "priority": 10
+      +  "parent": [null]
+      +  "priority": 20
+         "right": {
+           "data": 2
+           "left": [null]
+      -    "parent": {
+      -      "data": 3
+      -      "left": [Circular]
+      -      "parent": [null]
+      -      "priority": 20
+      -      "right": [Circular]
+      -    }
+      +    "parent": [Circular]
+           "priority": 7
            "right": [null]
          }
-      -  "parent": [null]
-      -  "priority": 10
-      -  "right": {
-      -    "data": 2
-      -    "left": [null]
-      -    "parent": [Circular]
-      -    "priority": 7
-      -    "right": [null]
-      -  }
-      +  "priority": 20
-      +  "right": [null]
+      -  "rigth": [null]
        }
       
-      at Context.it (test\max-heap.spec.js:158:22)
+      at Context.it (test\max-heap.spec.js:159:22)
 
-  4) MaxHeap #shiftNodeUp maintants parentNodes in correct state:
+  2) MaxHeap #shiftNodeUp maintants parentNodes in correct state:
 
       AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
       + expected - actual
 
        {
       -  "data": 1
-      +  "data": 0
-         "left": {
-      -    "data": 3
-      -    "left": [null]
-      -    "parent": [Circular]
-      -    "priority": 20
-      -    "right": [null]
-      -  }
+      -  "left": [null]
       -  "parent": {
-      -    "data": 0
-      -    "left": [Circular]
-      -    "parent": [null]
-      -    "priority": 10
-      -    "right": {
-      -      "data": 2
+      -    "data": 3
+      -    "left": {
+      -      "data": 0
+      +  "data": 0
+      +  "left": {
       +    "data": 1
-      +    "left": {
+      +    "left": [null]
+      +    "parent": {
       +      "data": 3
-             "left": [null]
-             "parent": [Circular]
-      -      "priority": 7
+             "left": [Circular]
+      -      "parent": [Circular]
+      -      "priority": 10
+      +      "parent": [null]
       +      "priority": 20
-             "right": [null]
+             "right": {
+               "data": 2
+               "left": [null]
+               "parent": [Circular]
+               "priority": 7
+               "right": [null]
+             }
+      -      "rigth": [null]
            }
-      +    "parent": [Circular]
       +    "priority": 5
       +    "right": [null]
+      +    "rigth": [null]
+      +  }
+      +  "parent": {
+      +    "data": 3
+      +    "left": [Circular]
+           "parent": [null]
+           "priority": 20
+           "right": {
+             "data": 2
+             "priority": 7
+             "right": [null]
+           }
          }
       -  "priority": 5
       -  "right": [null]
-      +  "parent": [null]
       +  "priority": 10
       +  "right": {
       +    "data": 2
       +    "left": [null]
-      +    "parent": [Circular]
+      +    "parent": {
+      +      "data": 3
+      +      "left": [Circular]
+      +      "parent": [null]
+      +      "priority": 20
+      +      "right": [Circular]
+      +    }
       +    "priority": 7
       +    "right": [null]
       +  }
+         "rigth": [null]
        }
       
-      at Context.it (test\max-heap.spec.js:170:32)
+      at Context.it (test\max-heap.spec.js:171:32)
 
-  5) MaxHeap #shiftNodeUp calls Node.swapWithParent:
-     AssertionError: expected swapWithParent to have been called exactly twice, but it was called 0 times
-      at Context.it (test\max-heap.spec.js:181:53)
+  3) MaxHeap #pop returns data associated with root:
+     AssertionError: expected { Object (data, priority, ...) } to equal 100
+      at Context.it (test\max-heap.spec.js:227:23)
 
-  6) MaxHeap #shiftNodeUp calls itself recursively:
-     expected shiftNodeUp to have been called exactly thrice, but it was called once
-    shiftNodeUp([Node] {
-  data: 3,
+  4) MaxHeap #pop calls shiftNodeDown with current heap root:
+     AssertionError: expected shiftNodeDown to have been called with arguments [Node] {
+  data: 100,
   left: null,
   parent: [Node] {
-    data: 1,
-    left: [Circular],
-    parent: [Node] {
-      data: 0,
-      left: [Circular],
-      parent: null,
-      priority: 10,
-      right: [Node] { data: 2, left: null, parent: [Circular], priority: 7, right: null }
-    },
-    priority: 5,
-    right: null
+    data: 42,
+    left: [Node] { data: 15, left: null, parent: [Circular], priority: 42, right: null },
+    parent: null,
+    priority: 15,
+    right: [Circular]
   },
-  priority: 20,
+  priority: 100,
   right: null
-}) at Context.it (c:\rss\priority-queue\test\max-heap.spec.js:188:6)
-  AssertionError: expected shiftNodeUp to have been called exactly thrice, but it was called once
-      shiftNodeUp([Node] {
-    data: 3,
-    left: null,
-    parent: [Node] {
-      data: 1,
-      left: [Circular],
-      parent: [Node] {
-        data: 0,
-        left: [Circular],
-        parent: null,
-        priority: 10,
-        right: [Node] { data: 2, left: null, parent: [Circular], priority: 7, right: null }
-      },
-      priority: 5,
-      right: null
-    },
-    priority: 20,
-    right: null
-  }) at Context.it (test\max-heap.spec.js:188:6)
-      at Context.it (test\max-heap.spec.js:190:38)
+}%D
+      at Context.it (test\max-heap.spec.js:269:41)
 
-  7) MaxHeap #pop returns data associated with root:
-     AssertionError: expected { Object (data, priority, ...) } to equal 100
-      at Context.it (test\max-heap.spec.js:226:23)
+  5) MaxHeap #restoreRootFromLastInsertedNode should remove last inserted node and assing it to root:
+     AssertionError: expected null to equal { Object (data, priority, ...) }
+      at Context.it (test\max-heap.spec.js:325:22)
 
-  8) MaxHeap #pop calls shiftNodeDown with current heap root:
-     AssertionError: expected shiftNodeDown to have been called with arguments null%D
-      at Context.it (test\max-heap.spec.js:268:41)
+  6) MaxHeap #restoreRootFromLastInsertedNode should maintain correct state of parentNodes:
 
-  9) MaxHeap #detachRoot removes root from parentNodes:
-
-      AssertionError: expected 15 to equal 42
+      AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
       + expected - actual
 
-      -15
-      +42
+       {
+      -  "data": 14
+      +  "data": 0
+         "left": [null]
+         "parent": {
+           "data": 42
+      -    "left": [Circular]
+      -    "parent": [null]
+      -    "priority": 15
+      -    "right": {
+      -      "data": 0
+      +    "left": {
+      +      "data": 14
+             "left": [null]
+             "parent": [Circular]
+      -      "priority": 0
+      +      "priority": 32
+             "right": [null]
+           }
+      +    "parent": [null]
+      +    "priority": 15
+      +    "right": [Circular]
+         }
+      -  "priority": 32
+      +  "priority": 0
+         "right": [null]
+       }
       
-      at Context.it (test\max-heap.spec.js:292:37)
+      at Context.it (test\max-heap.spec.js:339:32)
 
-  10) MaxHeap #restoreRootFromLastInsertedNode should remove last inserted node and assing it to root:
-     TypeError: Cannot read property 'left' of null
-      at Context.it (test\max-heap.spec.js:325:18)
+  7) MaxHeap #restoreRootFromLastInsertedNode should maintain correct order of parentNodes when right child is moved:
 
-  11) MaxHeap #restoreRootFromLastInsertedNode should maintain correct state of parentNodes:
-     AssertionError: expected { Object (data, priority, ...) } to equal null
-      at Context.it (test\max-heap.spec.js:338:32)
-
-  12) MaxHeap #restoreRootFromLastInsertedNode should maintain correct order of parentNodes when right child is moved:
-
-      AssertionError: expected [ 32, 0, 14, 13, 16, 12 ] to deeply equal [ 16, 14, 13, 0 ]
+      AssertionError: expected [ 14, 13, 16 ] to deeply equal [ 16, 14, 13, 0 ]
       + expected - actual
 
        [
-      -  32
-      -  0
       +  16
          14
          13
       -  16
-      -  12
       +  0
        ]
       
       at Assertion.assertEqual (node_modules\chai\lib\chai\core\assertions.js:485:19)
       at Assertion.ctx.(anonymous function) [as equal] (node_modules\chai\lib\chai\utils\addMethod.js:41:25)
-      at Context.it (test\max-heap.spec.js:359:53)
+      at Context.it (test\max-heap.spec.js:360:53)
 
-  13) MaxHeap #shiftNodeDown shifts node down until heap property is valid:
+  8) MaxHeap #shiftNodeDown shifts node down until heap property is valid:
 
       AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
       + expected - actual
@@ -683,9 +4470,9 @@ parent parent
       +  "right": [null]
        }
       
-      at Context.it (test\max-heap.spec.js:395:22)
+      at Context.it (test\max-heap.spec.js:396:22)
 
-  14) MaxHeap #shiftNodeDown maintants parentNodes in correct state:
+  9) MaxHeap #shiftNodeDown maintants parentNodes in correct state:
 
       AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
       + expected - actual
@@ -734,9 +4521,9 @@ parent parent
          "right": [null]
        }
       
-      at Context.it (test\max-heap.spec.js:408:32)
+      at Context.it (test\max-heap.spec.js:409:32)
 
-  15) MaxHeap #shiftNodeDown shifts node down in right direction:
+  10) MaxHeap #shiftNodeDown shifts node down in right direction:
 
       AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
       + expected - actual
@@ -818,13 +4605,13 @@ parent parent
          }
        }
       
-      at Context.it (test\max-heap.spec.js:439:31)
+      at Context.it (test\max-heap.spec.js:440:31)
 
-  16) MaxHeap #shiftNodeDown calls Node.swapWithParent:
+  11) MaxHeap #shiftNodeDown calls Node.swapWithParent:
      AssertionError: expected swapWithParent to have been called exactly once, but it was called 0 times
-      at Context.it (test\max-heap.spec.js:450:59)
+      at Context.it (test\max-heap.spec.js:451:59)
 
-  17) MaxHeap #shiftNodeDown calls itself recursively:
+  12) MaxHeap #shiftNodeDown calls itself recursively:
      expected shiftNodeDown to have been called exactly thrice, but it was called once
     shiftNodeDown([Node] {
   data: 0,
@@ -838,7 +4625,7 @@ parent parent
   parent: null,
   priority: 3,
   right: [Node] { data: 2, left: null, parent: [Circular], priority: 7, right: null }
-}) at Context.it (c:\rss\priority-queue\test\max-heap.spec.js:457:6)
+}) at Context.it (c:\rss\priority-queue\test\max-heap.spec.js:458:6)
   AssertionError: expected shiftNodeDown to have been called exactly thrice, but it was called once
       shiftNodeDown([Node] {
     data: 0,
@@ -852,108 +4639,29 @@ parent parent
     parent: null,
     priority: 3,
     right: [Node] { data: 2, left: null, parent: [Circular], priority: 7, right: null }
-  }) at Context.it (test\max-heap.spec.js:457:6)
-      at Context.it (test\max-heap.spec.js:459:40)
+  }) at Context.it (test\max-heap.spec.js:458:6)
+      at Context.it (test\max-heap.spec.js:460:40)
 
-  18) Node #removeChild assigns null to child.parent:
-     AssertionError: expected { Object (data, priority, ...) } to equal null
-      at Context.it (test\node.spec.js:87:32)
-
-  19) Node #swapWithParent updates parent.parent:
-     TypeError: Cannot read property 'parent' of null
-      at Node.swapWithParent (src\node.js:122:27)
-      at Context.it (test\node.spec.js:129:10)
-
-  20) Node #swapWithParent updates parent.child.parent:
-     TypeError: Cannot read property 'parent' of null
-      at Node.swapWithParent (src\node.js:122:27)
-      at Context.it (test\node.spec.js:168:10)
-
-  21) Node #swapWithParent updates children of node and parent node:
-     TypeError: Cannot read property 'parent' of null
-      at Node.swapWithParent (src\node.js:122:27)
-      at Context.it (test\node.spec.js:183:9)
-
-  22) Node #swapWithParent maintains correct state of parent.parent.left and parent.parent.right:
-
-      AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
-      + expected - actual
-
-       {
-      -  "data": 10
-      -  "left": {
-      -    "data": 100
-      -    "left": [null]
-      -    "parent": [Circular]
-      -    "priority": 34
-      -    "right": [null]
-      -  }
-      +  "data": 100
-      +  "left": [null]
-         "parent": {
-      -    "data": 1
-      +    "data": 10
-           "left": [Circular]
-      -    "parent": [null]
-      -    "priority": 42
-      -    "right": {
-      -      "data": 50
-      -      "left": {
-      -        "data": 500
-      -        "left": [null]
-      +    "parent": {
-      +      "data": 1
-      +      "left": [Circular]
-      +      "parent": [null]
-      +      "priority": 42
-      +      "right": {
-      +        "data": 50
-      +        "left": {
-      +          "data": 500
-      +          "left": [null]
-      +          "parent": [Circular]
-      +          "priority": 1
-      +          "right": [null]
-      +        }
-               "parent": [Circular]
-      -        "priority": 1
-      +        "priority": 42
-               "right": [null]
-             }
-      -      "parent": [Circular]
-      -      "priority": 42
-      -      "right": [null]
-           }
-      +    "priority": 15
-      +    "right": [null]
-         }
-      -  "priority": 15
-      +  "priority": 34
-         "right": [null]
-       }
-      
-      at Context.it (test\node.spec.js:205:25)
-
-  23) PriorityQueue #push throws an error if queue has max size:
+  13) PriorityQueue #push throws an error if queue has max size:
      ReferenceError: UserException is not defined
       at PriorityQueue.push (src\queue.js:16:4)
       at Context.it (test\queue.spec.js:37:6)
 
-  24) PriorityQueue #shift returns value of removed node:
+  14) PriorityQueue #shift returns value of removed node:
      AssertionError: expected { Object (data, priority, ...) } to equal 0
       at Context.it (test\queue.spec.js:63:25)
 
-  25) PriorityQueue #shift should return items sorted by priority:
+  15) PriorityQueue #shift should return items sorted by priority:
      AssertionError: expected { Object (data, priority, ...) } to equal 2
       at expectedData.forEach.d (test\queue.spec.js:87:51)
       at Array.forEach (<anonymous>)
       at Context.it (test\queue.spec.js:87:17)
 
-  26) PriorityQueue #shift should handle items with same priority (return in the same order this items have been added):
+  16) PriorityQueue #shift should handle items with same priority (return in the same order this items have been added):
      AssertionError: expected { Object (data, priority, ...) } to equal 3
       at Context.it (test\queue.spec.js:101:26)
 
-  27) PriorityQueue #size returns current size of queue:
+  17) PriorityQueue #size returns current size of queue:
 
       AssertionError: expected 2 to equal 1
       + expected - actual
@@ -962,6 +4670,16 @@ parent parent
       +1
       
       at Context.it (test\queue.spec.js:111:24)
+
+  18) PriorityQueue #isEmpty return true if queue is empty:
+
+      AssertionError: expected false to equal true
+      + expected - actual
+
+      -false
+      +true
+      
+      at Context.it (test\queue.spec.js:139:27)
 
 
 
