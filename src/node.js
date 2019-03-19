@@ -38,52 +38,75 @@ class Node {
 		if (this.parent != null){
 			var childLeft = this.parent.left;
 			var childRight = this.parent.right;
+
 			if (childRight != null){
 				this.parent.removeChild(childRight);
-			}else{
-				if (childLeft != null){
+			}
+			
+			if (childLeft != null){
 					this.parent.removeChild(childLeft);
-				}
 			}
 		}
 	}
 
-	swapWithParent() {
-	//	console.log("before");
-	//	console.log(this.parent);
+	swapWithParent(){
 		
+
 		if (!this.parent) return;
+	
+		// curr node
+		var leftChild = this.left;
+		var rightChild = this.right;
 		var parent = this.parent;
-		var leftChild = this.parent.left;
-		var rightChild = this.parent.right;
 
+		// parent node
+		var parentOfRightChild = this.parent.right;
+		var parentOfLeftChild = this.parent.left;
+		var parentOfParent = this.parent.parent;
 
+		// grandparent node
+		if(parentOfParent){
+				var parentOfParentLeft = this.parent.parent.left;
+				var parentOfParentRight = this.parent.parent.right;
+		}
 
-		if(rightChild){
-			this.parent.parent = rightChild;
-			this.parent.left.parent = rightChild;
+		this.parent.parent = this;
+		this.parent = parentOfParent;
+
+		// swapping node is right
+		if (this == parentOfRightChild){
+				if (parentOfLeftChild){
+						this.left = parentOfLeftChild;
+						parentOfLeftChild.parent = this;
+				}
+
+				this.right = parent;
+				parent.rigth = rightChild;
+				parent.left = leftChild;
 		}else{
-			if(leftChild){
-				if (leftChild.left){
-					var leftChildLeft = leftChild.left;
+			// swapping node is left
+			if (this == parentOfLeftChild){
+					if (parentOfRightChild){
+							this.right = parentOfRightChild;
+							parentOfRightChild.parent = this;
+					}
 
-					this.this.parent.left.left = leftChild;
-					this.this.parent.left = leftChildLeft;
-
-					this.this.parent.left.left.parent = leftChildLeft;
-					this.this.parent.left.parent = this.parent;
-				}else{
-					this.parent = leftChild;
-					this.parent.left = parent;
-					this.parent.left.parent = this.parent;
-					this.parent.left.left = null;
-			//		this.parent.parent = leftChild;
-				}	
+					this.left = parent;
+					parent.rigth = rightChild;
+					parent.left = leftChild;
 			}
-		}		
-	//	console.log("after");
-	//	console.log(this.parent);
+		}
+
+		// correct grandparent child links
+		if (parent == parentOfParentLeft){
+				this.parent.left = this;
+		}else{
+			if (parent == parentOfParentRight){
+				this.parent.right = this;
+			}
+		}
 	}
+
 }
 
 module.exports = Node;

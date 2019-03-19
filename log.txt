@@ -31,21 +31,21 @@
     #detachRoot
       √ assigns null to this.root
       9) removes root from parentNodes
-      10) returns detached root
+      √ returns detached root
     #restoreRootFromLastInsertedNode
-      11) should remove last inserted node and assing it to root
-      12) should maintain correct state of parentNodes
-      13) should maintain correct order of parentNodes when right child is moved
+      10) should remove last inserted node and assing it to root
+      11) should maintain correct state of parentNodes
+      12) should maintain correct order of parentNodes when right child is moved
     #shiftNodeDown
-      14) shifts node down until heap property is valid
-      15) maintants parentNodes in correct state
-      16) shifts node down in right direction
-      17) calls Node.swapWithParent
-      18) calls itself recursively
+      13) shifts node down until heap property is valid
+      14) maintants parentNodes in correct state
+      15) shifts node down in right direction
+      16) calls Node.swapWithParent
+      17) calls itself recursively
     #size
-      19) returns current size of heap
+      √ returns current size of heap
     #isEmpty
-      20) reutrns true if heap is empty
+      √ reutrns true if heap is empty
 
   Node
     #constructor
@@ -59,15 +59,15 @@
       √ assing null to this.left if passed node is left child
       √ assing null to this.right if passed node is right child
       √ throws error if passed node is not a child of this node
-      √ assigns null to child.parent
+      18) assigns null to child.parent
     #remove
       √ does nothing if node does not have parent
       √ calls child.parent.removeChild with child as arg
     #swapWithParent
-before
-null
       √ does nothing if node does not have parent
-before
+parent parent
+null
+parent
 Node {
   data: 15,
   priority: 42,
@@ -80,8 +80,42 @@ Node {
      left: null,
      right: null },
   right: null }
-      21) updates parent.parent
-before
+child
+Node {
+  data: 15,
+  priority: 42,
+  parent: null,
+  left:
+   Node {
+     data: 42,
+     priority: 15,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+========================
+parent parent
+      19) updates parent.parent
+parent parent
+Node {
+  data: 8,
+  priority: 8,
+  parent: null,
+  left:
+   Node {
+     data: 4,
+     priority: 4,
+     parent: [Circular],
+     left:
+      Node {
+        data: 2,
+        priority: 2,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right: null }
+parent
 Node {
   data: 4,
   priority: 4,
@@ -100,8 +134,89 @@ Node {
      left: null,
      right: null },
   right: null }
-      22) updates parent.parent.parent
-before
+child
+Node {
+  data: 4,
+  priority: 4,
+  parent:
+   Node {
+     data: 8,
+     priority: 8,
+     parent: null,
+     left: [Circular],
+     right: null },
+  left:
+   Node {
+     data: 2,
+     priority: 2,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+========================
+parent parent
+null
+parent
+Node {
+  data: 8,
+  priority: 8,
+  parent: null,
+  left:
+   Node {
+     data: 2,
+     priority: 2,
+     parent: [Circular],
+     left:
+      Node {
+        data: 4,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null,
+        rigth: null },
+     right: null },
+  right: null }
+child
+Node {
+  data: 8,
+  priority: 8,
+  parent: null,
+  left:
+   Node {
+     data: 2,
+     priority: 2,
+     parent: [Circular],
+     left:
+      Node {
+        data: 4,
+        priority: 4,
+        parent: [Circular],
+        left: null,
+        right: null,
+        rigth: null },
+     right: null },
+  right: null }
+      √ updates parent.parent.parent
+parent parent
+Node {
+  data: 100,
+  priority: 500,
+  parent: null,
+  left:
+   Node {
+     data: 15,
+     priority: 42,
+     parent: [Circular],
+     left:
+      Node {
+        data: 42,
+        priority: 15,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right: null }
+parent
 Node {
   data: 15,
   priority: 42,
@@ -120,8 +235,72 @@ Node {
      left: null,
      right: null },
   right: null }
-      23) updates child.parent
-before
+child
+Node {
+  data: 15,
+  priority: 42,
+  parent:
+   Node {
+     data: 100,
+     priority: 500,
+     parent: null,
+     left: [Circular],
+     right: null },
+  left:
+   Node {
+     data: 42,
+     priority: 15,
+     parent: [Circular],
+     left: null,
+     right: null },
+  right: null }
+========================
+parent parent
+null
+parent
+Node {
+  data: 100,
+  priority: 500,
+  parent: null,
+  left:
+   Node {
+     data: 42,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: 15,
+        priority: 42,
+        parent: [Circular],
+        left: null,
+        right: null,
+        rigth: null },
+     right: null },
+  right: null }
+child
+Node {
+  data: 100,
+  priority: 500,
+  parent: null,
+  left:
+   Node {
+     data: 42,
+     priority: 15,
+     parent: [Circular],
+     left:
+      Node {
+        data: 15,
+        priority: 42,
+        parent: [Circular],
+        left: null,
+        right: null,
+        rigth: null },
+     right: null },
+  right: null }
+      √ updates child.parent
+parent parent
+null
+parent
 Node {
   data: 1,
   priority: 2,
@@ -140,28 +319,16 @@ Node {
      parent: [Circular],
      left: null,
      right: null } }
-after
+child
 Node {
   data: 1,
   priority: 2,
-  parent:
-   Node {
-     data: 5,
-     priority: 6,
-     parent: [Circular],
-     left: null,
-     right: null },
+  parent: null,
   left:
    Node {
      data: 3,
      priority: 4,
-     parent:
-      Node {
-        data: 5,
-        priority: 6,
-        parent: [Circular],
-        left: null,
-        right: null },
+     parent: [Circular],
      left: null,
      right: null },
   right:
@@ -171,8 +338,12 @@ Node {
      parent: [Circular],
      left: null,
      right: null } }
-      √ updates parent.child.parent
-before
+========================
+parent parent
+      20) updates parent.child.parent
+parent parent
+null
+parent
 Node {
   data: 42,
   priority: 15,
@@ -197,52 +368,35 @@ Node {
      parent: [Circular],
      left: null,
      right: null } }
-after
-Node {
-  data: 0,
-  priority: 1,
-  parent:
-   Node {
-     data: 42,
-     priority: 15,
-     parent: [Circular],
-     left:
-      Node {
-        data: 13,
-        priority: 42,
-        parent: [Circular],
-        left: [Node],
-        right: null },
-     right: [Circular] },
-  left: null,
-  right: null }
-      24) updates children of node and parent node
-before
+child
 Node {
   data: 42,
   priority: 15,
-  parent:
-   Node {
-     data: 15,
-     priority: 42,
-     parent: null,
-     left: [Circular],
-     right:
-      Node {
-        data: 13,
-        priority: 42,
-        parent: [Circular],
-        left: [Node],
-        right: null } },
+  parent: null,
   left:
    Node {
      data: 13,
-     priority: 34,
+     priority: 42,
+     parent: [Circular],
+     left:
+      Node {
+        data: 0,
+        priority: 15,
+        parent: [Circular],
+        left: null,
+        right: null },
+     right: null },
+  right:
+   Node {
+     data: 0,
+     priority: 1,
      parent: [Circular],
      left: null,
-     right: null },
-  right: null }
-      25) maintains correct state of parent.parent.left and parent.parent.right
+     right: null } }
+========================
+parent parent
+      21) updates children of node and parent node
+      22) maintains correct state of parent.parent.left and parent.parent.right
 
   PriorityQueue
     #constructor
@@ -250,29 +404,42 @@ Node {
       √ assings new MaxHeap to this.heap
     #push
       √ calls heap.push with passed data and priority
-      √ throws an error if queue has max size
+      23) throws an error if queue has max size
     #shift
-      26) calls heap.pop
-      27) returns value of removed node
+      √ calls heap.pop
+      24) returns value of removed node
       √ throws an error if queue is empty
-      28) should return items sorted by priority
-      29) should handle items with same priority (return in the same order this items have been added)
+      25) should return items sorted by priority
+      26) should handle items with same priority (return in the same order this items have been added)
     #size
-      30) returns current size of queue
+      27) returns current size of queue
     #isEmpty
-      31) return true if queue is empty
+      √ return true if queue is empty
 
 
-  28 passing (134ms)
-  31 failing
+  32 passing (130ms)
+  27 failing
 
   1) MaxHeap #insertNode inserts nodes to correct places:
      AssertionError: expected null to equal { Object (data, priority, ...) }
       at Context.it (test\max-heap.spec.js:77:27)
 
   2) MaxHeap #insertNode maintains this.parentNodes in correct state:
-     AssertionError: expected undefined to equal { Object (data, priority, ...) }
-      at Context.it (test\max-heap.spec.js:95:32)
+
+      AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
+      + expected - actual
+
+       {
+      -  "data": 0
+      +  "data": 1
+         "left": [null]
+         "parent": [null]
+      -  "priority": 0
+      +  "priority": 1
+         "right": [null]
+       }
+      
+      at Context.it (test\max-heap.spec.js:102:32)
 
   3) MaxHeap #shiftNodeUp shifts node up until heap property is valid:
 
@@ -423,7 +590,7 @@ Node {
       at Context.it (test\max-heap.spec.js:190:38)
 
   7) MaxHeap #pop returns data associated with root:
-     AssertionError: expected undefined to equal 100
+     AssertionError: expected { Object (data, priority, ...) } to equal 100
       at Context.it (test\max-heap.spec.js:226:23)
 
   8) MaxHeap #pop calls shiftNodeDown with current heap root:
@@ -431,27 +598,30 @@ Node {
       at Context.it (test\max-heap.spec.js:268:41)
 
   9) MaxHeap #detachRoot removes root from parentNodes:
-     TypeError: Cannot read property 'data' of undefined
-      at Context.it (test\max-heap.spec.js:292:28)
 
-  10) MaxHeap #detachRoot returns detached root:
-     AssertionError: expected undefined to equal { Object (data, priority, ...) }
-      at Context.it (test\max-heap.spec.js:302:22)
+      AssertionError: expected 15 to equal 42
+      + expected - actual
 
-  11) MaxHeap #restoreRootFromLastInsertedNode should remove last inserted node and assing it to root:
+      -15
+      +42
+      
+      at Context.it (test\max-heap.spec.js:292:37)
+
+  10) MaxHeap #restoreRootFromLastInsertedNode should remove last inserted node and assing it to root:
      TypeError: Cannot read property 'left' of null
       at Context.it (test\max-heap.spec.js:325:18)
 
-  12) MaxHeap #restoreRootFromLastInsertedNode should maintain correct state of parentNodes:
+  11) MaxHeap #restoreRootFromLastInsertedNode should maintain correct state of parentNodes:
      AssertionError: expected { Object (data, priority, ...) } to equal null
       at Context.it (test\max-heap.spec.js:338:32)
 
-  13) MaxHeap #restoreRootFromLastInsertedNode should maintain correct order of parentNodes when right child is moved:
+  12) MaxHeap #restoreRootFromLastInsertedNode should maintain correct order of parentNodes when right child is moved:
 
-      AssertionError: expected [ 0, 14, 13, 16, 12 ] to deeply equal [ 16, 14, 13, 0 ]
+      AssertionError: expected [ 32, 0, 14, 13, 16, 12 ] to deeply equal [ 16, 14, 13, 0 ]
       + expected - actual
 
        [
+      -  32
       -  0
       +  16
          14
@@ -465,7 +635,7 @@ Node {
       at Assertion.ctx.(anonymous function) [as equal] (node_modules\chai\lib\chai\utils\addMethod.js:41:25)
       at Context.it (test\max-heap.spec.js:359:53)
 
-  14) MaxHeap #shiftNodeDown shifts node down until heap property is valid:
+  13) MaxHeap #shiftNodeDown shifts node down until heap property is valid:
 
       AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
       + expected - actual
@@ -515,7 +685,7 @@ Node {
       
       at Context.it (test\max-heap.spec.js:395:22)
 
-  15) MaxHeap #shiftNodeDown maintants parentNodes in correct state:
+  14) MaxHeap #shiftNodeDown maintants parentNodes in correct state:
 
       AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
       + expected - actual
@@ -566,7 +736,7 @@ Node {
       
       at Context.it (test\max-heap.spec.js:408:32)
 
-  16) MaxHeap #shiftNodeDown shifts node down in right direction:
+  15) MaxHeap #shiftNodeDown shifts node down in right direction:
 
       AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
       + expected - actual
@@ -650,11 +820,11 @@ Node {
       
       at Context.it (test\max-heap.spec.js:439:31)
 
-  17) MaxHeap #shiftNodeDown calls Node.swapWithParent:
+  16) MaxHeap #shiftNodeDown calls Node.swapWithParent:
      AssertionError: expected swapWithParent to have been called exactly once, but it was called 0 times
       at Context.it (test\max-heap.spec.js:450:59)
 
-  18) MaxHeap #shiftNodeDown calls itself recursively:
+  17) MaxHeap #shiftNodeDown calls itself recursively:
      expected shiftNodeDown to have been called exactly thrice, but it was called once
     shiftNodeDown([Node] {
   data: 0,
@@ -685,87 +855,113 @@ Node {
   }) at Context.it (test\max-heap.spec.js:457:6)
       at Context.it (test\max-heap.spec.js:459:40)
 
-  19) MaxHeap #size returns current size of heap:
+  18) Node #removeChild assigns null to child.parent:
+     AssertionError: expected { Object (data, priority, ...) } to equal null
+      at Context.it (test\node.spec.js:87:32)
 
-      AssertionError: expected 1 to equal 2
-      + expected - actual
-
-      -1
-      +2
-      
-      at Context.it (test\max-heap.spec.js:473:24)
-
-  20) MaxHeap #isEmpty reutrns true if heap is empty:
-     AssertionError: expected undefined to equal false
-      at Context.it (test\max-heap.spec.js:493:27)
-
-  21) Node #swapWithParent updates parent.parent:
-     ReferenceError: UserException is not defined
-      at Node.removeChild (src\node.js:32:5)
-      at Node.swapWithParent (src\node.js:76:25)
+  19) Node #swapWithParent updates parent.parent:
+     TypeError: Cannot read property 'parent' of null
+      at Node.swapWithParent (src\node.js:122:27)
       at Context.it (test\node.spec.js:129:10)
 
-  22) Node #swapWithParent updates parent.parent.parent:
+  20) Node #swapWithParent updates parent.child.parent:
+     TypeError: Cannot read property 'parent' of null
+      at Node.swapWithParent (src\node.js:122:27)
+      at Context.it (test\node.spec.js:168:10)
+
+  21) Node #swapWithParent updates children of node and parent node:
+     TypeError: Cannot read property 'parent' of null
+      at Node.swapWithParent (src\node.js:122:27)
+      at Context.it (test\node.spec.js:183:9)
+
+  22) Node #swapWithParent maintains correct state of parent.parent.left and parent.parent.right:
+
+      AssertionError: expected { Object (data, priority, ...) } to equal { Object (data, priority, ...) }
+      + expected - actual
+
+       {
+      -  "data": 10
+      -  "left": {
+      -    "data": 100
+      -    "left": [null]
+      -    "parent": [Circular]
+      -    "priority": 34
+      -    "right": [null]
+      -  }
+      +  "data": 100
+      +  "left": [null]
+         "parent": {
+      -    "data": 1
+      +    "data": 10
+           "left": [Circular]
+      -    "parent": [null]
+      -    "priority": 42
+      -    "right": {
+      -      "data": 50
+      -      "left": {
+      -        "data": 500
+      -        "left": [null]
+      +    "parent": {
+      +      "data": 1
+      +      "left": [Circular]
+      +      "parent": [null]
+      +      "priority": 42
+      +      "right": {
+      +        "data": 50
+      +        "left": {
+      +          "data": 500
+      +          "left": [null]
+      +          "parent": [Circular]
+      +          "priority": 1
+      +          "right": [null]
+      +        }
+               "parent": [Circular]
+      -        "priority": 1
+      +        "priority": 42
+               "right": [null]
+             }
+      -      "parent": [Circular]
+      -      "priority": 42
+      -      "right": [null]
+           }
+      +    "priority": 15
+      +    "right": [null]
+         }
+      -  "priority": 15
+      +  "priority": 34
+         "right": [null]
+       }
+      
+      at Context.it (test\node.spec.js:205:25)
+
+  23) PriorityQueue #push throws an error if queue has max size:
      ReferenceError: UserException is not defined
-      at Node.removeChild (src\node.js:32:5)
-      at Node.swapWithParent (src\node.js:76:25)
-      at Context.it (test\node.spec.js:142:13)
+      at PriorityQueue.push (src\queue.js:16:4)
+      at Context.it (test\queue.spec.js:37:6)
 
-  23) Node #swapWithParent updates child.parent:
-     ReferenceError: UserException is not defined
-      at Node.removeChild (src\node.js:32:5)
-      at Node.swapWithParent (src\node.js:76:25)
-      at Context.it (test\node.spec.js:155:10)
+  24) PriorityQueue #shift returns value of removed node:
+     AssertionError: expected { Object (data, priority, ...) } to equal 0
+      at Context.it (test\queue.spec.js:63:25)
 
-  24) Node #swapWithParent updates children of node and parent node:
-     AssertionError: expected null to equal { Object (data, priority, ...) }
-      at Context.it (test\node.spec.js:185:26)
-
-  25) Node #swapWithParent maintains correct state of parent.parent.left and parent.parent.right:
-     ReferenceError: UserException is not defined
-      at Node.removeChild (src\node.js:32:5)
-      at Node.swapWithParent (src\node.js:76:25)
-      at Context.it (test\node.spec.js:202:16)
-
-  26) PriorityQueue #shift calls heap.pop:
-     ReferenceError: UserException is not defined
-      at PriorityQueue.shift (src\queue.js:21:4)
-      at Context.it (test\queue.spec.js:57:6)
-
-  27) PriorityQueue #shift returns value of removed node:
-     ReferenceError: UserException is not defined
-      at PriorityQueue.shift (src\queue.js:21:4)
-      at Context.it (test\queue.spec.js:63:13)
-
-  28) PriorityQueue #shift should return items sorted by priority:
-     AssertionError: expected undefined to equal 2
+  25) PriorityQueue #shift should return items sorted by priority:
+     AssertionError: expected { Object (data, priority, ...) } to equal 2
       at expectedData.forEach.d (test\queue.spec.js:87:51)
       at Array.forEach (<anonymous>)
       at Context.it (test\queue.spec.js:87:17)
 
-  29) PriorityQueue #shift should handle items with same priority (return in the same order this items have been added):
-     AssertionError: expected undefined to equal 3
+  26) PriorityQueue #shift should handle items with same priority (return in the same order this items have been added):
+     AssertionError: expected { Object (data, priority, ...) } to equal 3
       at Context.it (test\queue.spec.js:101:26)
 
-  30) PriorityQueue #size returns current size of queue:
+  27) PriorityQueue #size returns current size of queue:
 
-      AssertionError: expected 0 to equal 1
+      AssertionError: expected 2 to equal 1
       + expected - actual
 
-      -0
+      -2
       +1
       
       at Context.it (test\queue.spec.js:111:24)
-
-  31) PriorityQueue #isEmpty return true if queue is empty:
-
-      AssertionError: expected true to equal false
-      + expected - actual
-
-      -true
-      +false
-      
-      at Context.it (test\queue.spec.js:136:27)
 
 
 

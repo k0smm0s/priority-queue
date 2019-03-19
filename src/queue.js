@@ -11,13 +11,14 @@ class PriorityQueue {
 
 	push(data, priority) {
 		this.heap.push(data, priority);
+		this.heap.push()
 		if (this.size() >= this.maxSize){
 			throw new UserException("queue is full");
 		}
 	}
 
 	shift() {
-		console.log(1);
+	//	console.log(1);
 		
 		if (this.isEmpty()){
 			throw new UserException("queue is empty");

@@ -15,9 +15,11 @@ class MaxHeap {
 		//console.log("pop");
 		if (this.root != null){
 			let root =  this.root;
+			let dataRoot =  this.parentNodes.shift();
 			let dRoot = this.detachRoot();
 			this.restoreRootFromLastInsertedNode(dRoot);
 			this.shiftNodeDown(root);
+			return dRoot;
 		}
 	}
 
