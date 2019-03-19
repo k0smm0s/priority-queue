@@ -25,14 +25,18 @@ class MaxHeap {
 			this.restoreRootFromLastInsertedNode(dRoot);
 			this.shiftNodeDown(root);
 			
-			return dRoot;
+			//return root;
 		}
 	}
 
 	detachRoot() {
+		let root = this.root;
+		let indexOfRoot = this.parentNodes.indexOf(this.root)
+		if (indexOfRoot !=-1){
+			 this.parentNodes.splice(indexOfRoot,1);
+		}
 		this.root = null;
-		var rootP = this.parentNodes.pop();
-		return rootP;
+		return root;
 	}
 
 	restoreRootFromLastInsertedNode(detached) {
