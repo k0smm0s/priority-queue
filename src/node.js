@@ -39,75 +39,81 @@ class Node {
 
 	remove() {
 		if (this.parent != null){
-			var childLeft = this.parent.left;
-			var childRight = this.parent.right;
-
-			if (childRight != null){
-				this.parent.removeChild(childRight);
-			}
-			
-			if (childLeft != null){
-					this.parent.removeChild(childLeft);
-			}
+			this.parent.removeChild(this);
 		}
 	}
 
 	swapWithParent(){
+		if (!this.parent) return;	
+		// console.log("start");
+		// console.log(this);
+		// console.log("==========");
+		let parent = this.parent;
+		let grandparent = parent.parent;
+		let thisParentLeft, thisParentRight, thisLeft, thisRight = false;
+		let rightChild = this.right;
+		let leftChild = this.left;
+		let parentLeftChild = parent.left;
+		let parentRightChild = parent.right;
+	//	console.log("++");
+
+		if (parent.left == this){
+			thisLeft = true;
+		}
+
+		if (parent.right == this){
+			thisRight = true;
+		}
+
+		if (grandparent && grandparent.left == parent){
+			thisParentLeft = true;
+		}
+
+		if (grandparent && grandparent.right == parent){
+			thisParentRight = true;
+		}
+
+		this.parent = grandparent;
+
+		if (thisParentLeft){
+			this.parent.left = this;
+		}
+
+		if (thisParentRight){
+			this.parent.right = this;
+		}
+
+		parent.left = leftChild;
+		parent.right = rightChild;
 		
-
-		if (!this.parent) return;
-	
-		// curr node
-		var leftChild = this.left;
-		var rightChild = this.right;
-		var parent = this.parent;
-
-		// parent node
-		var parentOfRightChild = this.parent.right;
-		var parentOfLeftChild = this.parent.left;
-		var parentOfParent = this.parent.parent;
-
-		// grandparent node
-		if(parentOfParent){
-				var parentOfParentLeft = this.parent.parent.left;
-				var parentOfParentRight = this.parent.parent.right;
+		if (leftChild){
+			parent.left.parent = parent;
 		}
 
-		this.parent.parent = this;
-		this.parent = parentOfParent;
+		if (rightChild){
+			parent.right.parent = parent;
+		}
 
-		// swapping node is right
-		if (this == parentOfRightChild){
-				if (parentOfLeftChild){
-						this.left = parentOfLeftChild;
-						parentOfLeftChild.parent = this;
-				}
-
-				this.right = parent;
-				parent.rigth = rightChild;
-				parent.left = leftChild;
-		}else{
-			// swapping node is left
-			if (this == parentOfLeftChild){
-					if (parentOfRightChild){
-							this.right = parentOfRightChild;
-							parentOfRightChild.parent = this;
-					}
-
-					this.left = parent;
-					parent.rigth = rightChild;
-					parent.left = leftChild;
+		if (thisLeft){
+			this.right = parentRightChild;
+			if (this.right){
+				this.right.parent = this;
 			}
+			this.left = parent;
+			this.left.parent = this;
 		}
 
-		// correct grandparent child links
-		if (parent == parentOfParentLeft){
-				this.parent.left = this;
-		}else{
-			if (parent == parentOfParentRight){
-				this.parent.right = this;
+		if (thisRight){
+			this.left = parentLeftChild;
+			if (this.left){
+				this.left.parent = this;
 			}
+			this.right = parent;
+			this.right.parent = this;
 		}
+		// console.log("end");
+		// console.log(this);
+		// console.log("==========");
 	}
 
 }
